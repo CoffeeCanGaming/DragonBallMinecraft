@@ -3,6 +3,7 @@ package dbm.crashingtimelines.dbmtc.util;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class TabDBM extends CreativeTabs{
@@ -16,6 +17,6 @@ public class TabDBM extends CreativeTabs{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
-		return null;
+		return Items.apple;
 	}
 }
