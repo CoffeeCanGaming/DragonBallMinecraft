@@ -8,23 +8,17 @@ import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import dbm.crashingtimelines.dbmtc.lib.Recipes;
 import dbm.crashingtimelines.dbmtc.lib.References;
-import dbm.crashingtimelines.dbmtc.proxies.ClientProxy;
-import dbm.crashingtimelines.dbmtc.proxies.CommonProxy;
 import dbm.crashingtimelines.dbmtc.util.TabDBM;
 
 
 @Mod(modid = References.MODID, version = References.VERSION, name = References.MODNAME)
 public class DBMTCMain
 {
-	@SidedProxy(clientSide = "dbm.crashingtimelines.dbmtc.proxies.ClientProxy", serverSide = "dbm.crashingtimelines.dbmtc.proxies.CommonProxy")
-	public static CommonProxy proxy;
-	public static ClientProxy cproxy;
     
 	public static Logger Log = FMLLog.getLogger();
 
