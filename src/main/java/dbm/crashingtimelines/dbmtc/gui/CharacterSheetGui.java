@@ -33,7 +33,7 @@ public class CharacterSheetGui  extends GuiScreen{
 		int guiX = (width -guiWidth) ;
 		int guiY = (height - guiHeight);
 		buttonList.clear();
-		buttonList.add(Strength = new GuiButton(0,guiX + 32,guiY + 25,70,20, "Zakar!"));
+		buttonList.add(Strength = new GuiButton(0,guiX + 32,guiY + 25,70,20, "Strength"));
 		super.initGui();
 		
 	}

@@ -29,6 +29,8 @@ public class ItemsBlocks {
 	public static Item Android17boots;
 	public static Item TimeBreakerMask;
 	
+	public static Item Kifood;
+	
 	public static void initItems() {
 		
 		Basicclothestorso = new ItemBasicclothes(DBMarmor,0,1).setUnlocalizedName("Basicclothestorso")
@@ -37,6 +39,10 @@ public class ItemsBlocks {
 		Basicclothespants = new ItemBasicclothes(DBMarmor,0,2).setUnlocalizedName("Basicclothespants")
 				.setTextureName("dbc:Basicclothespants").setCreativeTab(DBMTCMain.DBMTab);
 		GameRegistry.registerItem(Basicclothespants, "Basicclothespants");
+		
+		
+		Kifood = new dbm.crashingtimelines.dbmtc.dbmitems.Kifood ();
+		GameRegistry.registerItem(Kifood, "Kifood");
 		
 		
 		

@@ -13,23 +13,20 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import dbm.crashingtimelines.dbmtc.gui.CharacterSheetGui;
 
-@SideOnly(Side.CLIENT)
+
 public class KeyBindingHandler {
 	
-	public static final KeyBinding backpackOpen =
-			new KeyBinding("key.betterstorage.backpackOpen", Keyboard.KEY_B, "key.categories.gameplay");
-	public static final KeyBinding drinkingHelmet =
-			new KeyBinding("key.betterstorage.drinkingHelmet", Keyboard.KEY_F, "key.categories.gameplay");
+	public static KeyBinding charactersheet = new KeyBinding("Character Sheet", Keyboard.KEY_B, "DBM");
 	
-	private static final KeyBinding[] bindings = new KeyBinding[]{ backpackOpen, drinkingHelmet };
+	private static final KeyBinding[] bindings = new KeyBinding[]{ charactersheet };
 	
 	public KeyBindingHandler() {
 		MinecraftForge.EVENT_BUS.register(this);
 		FMLCommonHandler.instance().bus().register(this);
 		
-		ClientRegistry.registerKeyBinding(backpackOpen);
-		ClientRegistry.registerKeyBinding(drinkingHelmet);
+		ClientRegistry.registerKeyBinding(charactersheet);
 	}
 	
 	@SubscribeEvent
@@ -37,11 +34,9 @@ public class KeyBindingHandler {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.thePlayer;
 		if (!mc.inGameHasFocus || (player == null)) return;
-		if (backpackOpen.isPressed() && (ItemBackpack.getBackpack(player) != null) &&
-		    BetterStorage.globalConfig.getBoolean(GlobalConfig.enableBackpackOpen))
-			BetterStorage.networkChannel.sendToServer(new PacketBackpackOpen());
-		else if (drinkingHelmet.isPressed() && (player.getEquipmentInSlot(EquipmentSlot.HEAD) != null))
-			BetterStorage.networkChannel.sendToServer(new PacketDrinkingHelmetUse());
+		if (charactersheet.isPressed()){
+				Minecraft.getMinecraft().displayGuiScreen(new CharacterSheetGui());
+		}
 	}
 	
 }
