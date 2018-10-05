@@ -1,3 +1,4 @@
+//class by CoffeeCanGaming for the server DragonBall:CrashingTimelines
 package dbm.crashingtimelines.dbmtc;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,6 +19,7 @@ import dbm.crashingtimelines.dbmtc.lib.References;
 import dbm.crashingtimelines.dbmtc.proxies.ClientProxy;
 import dbm.crashingtimelines.dbmtc.proxies.CommonProxy;
 import dbm.crashingtimelines.dbmtc.util.TabDBM;
+
 
 
 @Mod(modid = References.MODID, version = References.VERSION, name = References.MODNAME)
@@ -54,6 +56,7 @@ public class DBMTCMain
 	public void init(FMLInitializationEvent event) {
 		Log.info("Init");
 		proxy.registerRenders();
+		cproxy.initkeys();
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 

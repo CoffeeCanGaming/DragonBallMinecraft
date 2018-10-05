@@ -1,6 +1,8 @@
+//class by CoffeeCanGaming for the server DragonBall:CrashingTimelines
 package dbm.crashingtimelines.dbmtc.player;
 
 import net.minecraft.entity.Entity;
+//class by CoffeeCanGaming for the server DragonBall:CrashingTimelines
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -13,16 +15,25 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 	public final static String Constitution = "con";
 	public final static String Wisdom = "wis";
 	public final static String ZenkaiPoints = "Zp";
+	public final static String Experience = "EXP";
+	
 	
 	public final static String Energy = "Energy";
 	
 	private int currentEnergy = 0;
-	private int maxEnergy =  100;
+	private int maxEnergy = 0;
 	private int str = 0;
 	private int dex = 0;
 	private int will = 0;
 	private int con = 0;
 	private int wis = 0;
+	
+	private int CurHP = 0;
+	private int MaxHP = 0;
+	
+	private int race = 0;
+	
+	private int alignment = 0;
 	
 	
 	
@@ -34,7 +45,9 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 		this.player = player;
 		this.currentEnergy = 0;
 		this.maxEnergy = 100;
-	
+		this.race = 0;
+		this.CurHP = 10;
+		this.MaxHP = 100;
 	}
 	public static final void register(EntityPlayer player) {
 		player.registerExtendedProperties(Energy, new ExtendedPlayer(player));
@@ -50,6 +63,12 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 		NBTTagCompound properties = new NBTTagCompound();
 		properties.setInteger("currentEnergy", this.currentEnergy);
 		properties.setInteger("MaxEnergy", this.maxEnergy);
+		
+		properties.setInteger("Race",this.race);
+		
+		properties.setInteger("CurrentHP", this.CurHP);
+		properties.setInteger("MaxHP", this.MaxHP);
+		
 		compound.setTag(Energy, properties);
 		
 	}

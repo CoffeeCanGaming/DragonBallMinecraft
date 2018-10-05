@@ -53,12 +53,12 @@ public class Kibar extends Gui {
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_LIGHTING);
 			{
-				short w = 256;
-				int Energy = (int) (props.getCurrentEnergy() * (float) (w + 1));
-				int var1 = 256 + Energy;
-				int CurrentEnergy = w - Energy;
+				float w = 2.56F;
+				int Energy = (int) (props.getCurrentEnergy() * (float) (w));
+				int var1 = 256 - Energy;
+				float CurrentEnergy = w - Energy;
 				this.drawTexturedModalRect(0, 0, 0, 128, 256, 128 );
-				this.drawTexturedModalRect(0, 0, 0, 0, 256 - var1 , 128);
+				this.drawTexturedModalRect(0, 0, 0,0 , 0 + Energy , 128);
 				
 				
 
